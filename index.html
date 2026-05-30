@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>X</title>
+  <!-- PWAマニフェスト -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon.png">
+  
+  <!-- Google Fonts:Outfit と Noto Sans JP をインポート -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- 1. 本物そっくりのスプラッシュ画面 -->
+    <div id="splash-screen" class="screen active">
+      <div class="x-logo-container">
+        <!-- Twitter/Xの本物のSVGパス -->
+        <svg class="x-logo" viewBox="0 0 24 24" aria-hidden="true">
+          <g>
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- 2. 警告画面 -->
+    <div id="warning-screen" class="screen">
+      <div class="warning-content">
+        <div class="warning-icon-wrapper">
+          <span class="warning-emoji">⚠️</span>
+        </div>
+        <h1 class="warning-title">こらこら！</h1>
+        <p class="warning-text">
+          <span class="highlight">X（Twitter）</span>ばかり見ていては<br>
+          <span class="alert-accent">ダメよ！</span>
+        </p>
+        <div class="timer-bar">
+          <div class="timer-progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 完了（退出）画面 -->
+    <div id="done-screen" class="screen">
+      <div class="done-content">
+        <div class="success-glow"></div>
+        <h2 class="done-title">深呼吸しましょう</h2>
+        <p class="done-message">さあ、今やるべき目の前のことに<br>静かに意識を戻しましょう。🌟</p>
+        <button id="close-btn" class="action-btn">作業に戻る</button>
+        <p class="hint-text">（ボタンを押して閉じるか、ホーム画面に戻ってください）</p>
+      </div>
+    </div>
+
+    <!-- 4. 強制ブラックアウト（ブラウザの「閉じる」補助） -->
+    <div id="blackout-screen" class="screen">
+      <div class="blackout-content">
+        <p>画面を閉じて、ホーム画面に戻りましょう。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
